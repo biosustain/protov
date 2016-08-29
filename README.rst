@@ -55,5 +55,5 @@ To-do
 
 7. ``MethodValidator`` — like ``MessageValidator`` but for request messages for `rpc` calls.
 
-8. `_validator.*` calls should return functions and be executed ahead of times for better speed.
+8. ``_validator.*`` calls should return functions and be executed ahead of times for better speed.
 

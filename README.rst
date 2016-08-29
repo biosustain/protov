@@ -1,9 +1,9 @@
 
 ========================================================
-`protov` --- JSON Schema validation for Protocol Buffers
+``protov`` — JSON Schema validation for Protocol Buffers
 ========================================================
 
-`protov` is a validation format for Protocol Buffers. It uses *options* declared in .protos files in a JSON schema-like
+ProtoV is a validation format for Protocol Buffers. It validates against *options* specified in .protos files in a JSON schema-like
 format.
 
 
@@ -14,9 +14,7 @@ Usage example
 ::
 
     syntax = "proto3";
-
     import "schema/annotations.proto";
-
 
     message Animal {
         string name = 1 [(v.schema).min_length = 3];

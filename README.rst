@@ -40,20 +40,20 @@ To-do
    at some point. The number of properties in the map can be validated using ``min_items`` and ``max_items``.
 
 2. Related to the point above, ``Value``, ``StringValue`` and other existing message types can not yet be validated.
-   This should be implemented through the `message` validation, which contains a sub-schema for a message type.
+   This should be implemented through the ``message`` validation, which contains a sub-schema for a message type.
 
    e.g. ``google.protobuf.FloatValue score = 123 [(v.schema).message = {value: {minimum: 0, maximum: 1}}];``
 
-3. `min_properties` and `max_properties` validations do not work. Use `min_items` and `max_items` instead.
+3. ``min_properties`` and ``max_properties`` validations do not work. Use ``min_items`` and ``max_items`` for now.
 
 4. The validator silently ignores errors in the schema, e.g. using a string validation on
-   an integer or vice-versa. These should raise a `ValueError` at when initializing the validator.
+   an integer or vice-versa. These should raise a `ValueError` when initializing the validator.
 
-5. Other validations that need to be supported: `unique_items`, `format`.
+5. Other validations that need to be supported: ``unique_items``, ``format``.
 
 6. Generating a JSON schema from the schema definition.
 
-7. `MethodValidator`, like `MessageValidator` but for request messages for `rpc` calls.
+7. ``MethodValidator`` — like ``MessageValidator`` but for request messages for `rpc` calls.
 
 8. `_validator.*` calls should return functions and be executed ahead of times for better speed.
 

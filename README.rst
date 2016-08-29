@@ -4,7 +4,7 @@
 ========================================================
 
 ProtoV is a validation format for Protocol Buffers. It validates against *options* specified in .protos files in a JSON schema-like
-format.
+format. This repository contains a Python implementation.
 
 
 Usage example

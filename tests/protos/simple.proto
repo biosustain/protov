@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "schema/annotations.proto";
+
+
+message Entity {
+    string id = 1 [(v.schema).min_length = 1];
+}
+
+
+message HelloRequest {
+    string name = 1 [(v.schema).min_length = 2];
+
+    int32 age = 2 [(v.schema).minimum.value = 5];
+
+    string no_validation_schema = 3;
+
+    repeated string tags = 4 [(v.schema) = {max_items: 3, max_length: 10}];
+
+    map <int32, string> codes = 5 [(v.schema).max_items = 2];
+
+    repeated Entity entities = 6;
+}

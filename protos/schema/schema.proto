@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/any.proto";
+
+package v;
+
+message JSONSchema {
+
+    // use with string:
+    uint32 min_length = 1;
+    uint32 max_length = 2;
+
+    string pattern = 3;
+    string format = 4;
+
+    // use with any integer and float field:
+    google.protobuf.UInt64Value minimum = 5;
+    google.protobuf.UInt64Value maximum = 6;
+    bool exclusive_minimum = 7;
+    bool exclusive_maximum = 8;
+
+    // use with repeated fields:
+    uint32 min_items = 9;
+    uint32 max_items = 10;
+
+
+    bool unique_items = 11;
+
+    // use with map fields:
+    uint32 min_properties = 12;
+    uint32 max_properties = 13;
+
+    map<string, JSONSchema> message = 14;
+}
+
+
+message RequestSchemaOptions {
+    oneof include_exclude_fields {
+        google.protobuf.FieldMask exclude = 1;
+        google.protobuf.FieldMask include = 2;
+    }
+
+    repeated string require = 3;
+}

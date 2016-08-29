@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "google/protobuf/descriptor.proto";
+
+import "schema/schema.proto";
+
+package v;
+
+extend google.protobuf.FieldOptions {
+    JSONSchema schema = 51021;
+}
+
+extend google.protobuf.MessageOptions {
+    string description = 51011;
+}
+
+extend google.protobuf.MethodOptions {
+    RequestSchemaOptions request = 51031;
+}
